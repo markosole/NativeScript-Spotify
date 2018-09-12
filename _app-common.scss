@@ -1,0 +1,139 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+
+// Font icon class
+.fa {
+    font-family: "FontAwesome";
+ }
+ // Common page class
+ .page-content {
+     
+     .page-placeholder {
+         color: $page-icon-color;
+         font-size: $page-content-placeholder-font-size;
+         vertical-align: center;
+         horizontal-align: center;
+     }
+ 
+     .page-icon {
+         font-size: 72;
+         vertical-align: top;
+         horizontal-align: center;
+         color: $page-icon-color;
+         margin-top: 20%;
+     }
+ }
+ //Action bar
+ ActionBar .action-bar-title {
+     horizontal-align: center;
+ }
+
+ button, label, stack-layout {
+    horizontal-align: center;    
+}
+
+.icon {
+   font-family: 'icomoon';
+}
+.time {
+    margin-top: 12;
+}
+.label-spotify {
+    margin-bottom: 50px;
+}
+
+.ikonice {
+    margin-top: 95px;
+    font-size: 45;
+    color: #fff;
+}
+.ikonice-text {
+    color: #fff;
+}
+Page {
+    color: white;
+    background: black;
+}
+.seek-bar {
+    margin-top: -60;
+}
+
+.c-blue{color:#303030}.c-bg-blue{background-color:#303030}.c-charcoal{color:#303030}
+.action-bar{background-color:#303030;color:#fff}
+.bg-primary{background-color:#303030;color:#fff}
+.content {
+    background: #000;
+    color: white;
+    width: 100%;
+}
+.h2 {
+    color: white;
+}
+.spotify-green {
+    color:  #a3cd00;;
+    background-color: #a3cd00;    
+}
+Label {
+    color: white;
+}
+
+.button-green {
+    background: #a3cd00;
+    color: #000;
+}
+.titles {
+    // background-color: #fff;
+    color: #a3cd00;
+    // border-radius: 50;
+    // height: 65;
+      padding: 5;    
+}
+
+.sidedrawer-header {
+    background: #1a1414;
+    padding-top: 20;
+}
+
+.header-spot-logo {
+    margin-top: 40px;
+}
+// used to hide elements in UI
+.hidden {
+    display: none;
+    height: 0;
+    width: 0;
+}
+.login-required {
+    margin-top: 50;
+}
+.vol-icon, .light-icon {
+    margin-top: 37px;
+
+}
+.vol-slider {
+    color:  #4f4f4f;;
+    background-color: #7a7a7a; 
+    margin-right: -10px;
+    margin-left: -10px;
+}
+.vol-level {
+    margin-top: -30;
+    height: 60;
+    color: #7a7a7a;
+}
+.artist-image {
+    border-width: 1;
+    border-color: #fff;
+    padding: 5; 
+}
+.player-info {  
+    margin-top: -7px; 
+}
+.gray {
+    color: #7a7a7a;
+}
+.album-info {
+    margin-top: 30;
+}
+
+ 
