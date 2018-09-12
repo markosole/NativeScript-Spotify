@@ -2,7 +2,7 @@
 This is simple NativeScript app for controling Spotify
 NOTE: (ios not tested for latest version)
 
-# Befor you begin
+# Before you begin
 This app requires nodejs server as backend. Please check here: https://github.com/markosole/nodejs-spotify
 Make sure that you alter settings for your needs (server URLs).
 
