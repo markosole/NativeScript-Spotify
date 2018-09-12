@@ -1,0 +1,92 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd"> 
+    <ActionBar class="action-bar"> 
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton> 
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Home"></Label>
+    </ActionBar> 
+    <ScrollView>
+     <StackLayout class="content"> 
+            <GridLayout class="{{ 'm-15' + (blynkConfigured === 'yes' ? '': ' hidden') }}" rows="auto auto" columns="50 * 50">
+                <Label row="0" colSpan="3" class="h2 p-15" text="{{ 'Ambient light: ' + currentValue + '%' }}" textWrap="true"/>
+                <Label row="1" col="0" text="0%" textWrap="true" fontSize="15" class="icon light-icon"/>
+                <Slider class="slider centrar-y spotify-green" row="1" col="1" value="{{ sliderValue }}"  minValue="{{ firstMinValue }}" maxValue="{{ firstMaxValue }}"/>
+                <Label row="1" col="2" text="100%" textWrap="true" fontSize="15" class="icon light-icon"/>
+            </GridLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->            
+            <Label row="0" colSpan="3" class="h1 p-15 titles spot-title" text="Spotify Audio" textWrap="true"/>
+        <StackLayout class="{{ '' + (loginRequested === 'yes' ? ' hidden': '') }}">
+            <GridLayout class="m-15"  rows="auto auto" columns="200 * auto" width="95%">
+                <StackLayout class="artist-image" row="0" col="0">
+                    <Image stretch="fill" width="150" height="150" horizontalAlignment="center" src="{{ artistImage }}"/>
+                </StackLayout> 
+                <!-- Device -->
+                <StackLayout row="0" col="1" orientation="horizontal" horizontalAlignment="left" verticalAlignment="top" class="player-info">
+                    <Label row="0" col="1"   text="{{ (deviceType === 'Smartphone' ? '&#xf3cd;' : '&#xf108;') }}" height="20" width="35" class="h2" style="margin-top: 3;" textWrap="true" fontSize="16" class="fa device-name"/>
+                    <Label row="0" col="2"   text="{{ deviceName }}" height="20" class="h2" textWrap="true" fontSize="16" class="fa device-name"/>
+                    <Label row="0" col="2"   text=" &#xf0c1;" height="16" width="30" fontSize="14" class="fa gray"/>
+                </StackLayout>
+                <!-- Album info -->
+                <StackLayout row="0" col="1" orientation="vertical" horizontalAlignment="left" verticalAlignment="top" class="album-info">
+                    <Label row="0" col="1"   text="ALBUM" height="30" horizontalAlignment="left" width="100" class="h2" style="margin-top: 3;" textWrap="true" fontSize="16" class="fa device-name"/>
+                    <Label row="0" col="2"   text="{{ albumName }}"  horizontalAlignment="left" height="60" class="h2" textWrap="true" fontSize="38" class="fa device-name"/>
+                    <Label row="0" col="2"   text="{{ 'By ' + playingArtist }}" height="22" horizontalAlignment="left" width="200" fontSize="14" class="fa"/>
+                    <Label row="0" col="3"   text="{{ albumYear + ' - ' + albumTracks + ' songs' }}" height="22" horizontalAlignment="left" width="200" fontSize="14" class="fa gray"/>
+                </StackLayout>  
+            </GridLayout> 
+            <Label text="{{ playingSong }}" height="40" class="h2"  komanda="currently-playing" tip="GET" tap="whatsPlaying" textWrap="true" fontSize="26" class="label-spotify"/>
+            <Label text="{{ playingArtist }}" height="43" style="margin-top: -20; color: #888888; margin-bottom: 30;"  komanda="currently-playing" tip="GET" tap="whatsPlaying" textWrap="true" fontSize="15" class="label-spotify"/>
+                    
+                         <!-- Seek bar -->
+                        <GridLayout class="m-15 seek-bar"  rows="auto auto" columns="50 * 50" width="70%">                         
+                            <Label row="1" col="0" text="{{ progressSongTime }}" textWrap="true" fontSize="15" class="icon time"/>
+                            <Slider class="slider centrar-y spotify-green" row="1" col="1" value="{{ progressSong }}"  minValue="0" maxValue="{{ durationSong }}"/>
+                            <Label row="1" col="2" text="{{ durationSongTime }}" textWrap="true" fontSize="15" class="icon time"/>
+                        </GridLayout> 
+                        <!-- volume bar --> 
+
+                        <GridLayout  rows="auto auto" columns="50 * 50" width="30%">   
+                            <Label row="0" colSpan="3" class="h4 p-15 vol-level" text="{{ volumeLevel + '%' }}" textWrap="true"/>                      
+                            <Label row="0" col="0" text="&#xf027;" class="fa vol-icon" textWrap="true" fontSize="15"/>
+                            <Slider class="slider centrar-y vol-slider" row="0" col="1" value="{{ volumeSlider }}" komanda="volume?volume_percent" tip="PUT" tap="komande"  minValue="0" maxValue="100"/>
+                            <Label row="0" col="2" text="&#xf028;" class="fa vol-icon" textWrap="true" fontSize="15"/>
+                        </GridLayout>  
+                    
+            <StackLayout class="content" orientation="horizontal" width="40%">
+                    <GridLayout columns="auto, *" col="1" class="sidedrawer-list-item" title="Previous song" komanda="previous" tip="POST" tap="komande" height="220" width="25%">  
+                                <Label row="1" col="2" text="Play Prev"  class="p-r-10 ikonice-text"/>
+                                <Label row="0" col="2" text="&#xf053;" class="fa ikonice" height="190"/>  
+                    </GridLayout>
+                    <GridLayout columns="auto, *" col="0" class="sidedrawer-list-item" title="Pause" komanda="pause" tip="PUT" tap="komande" height="220" width="25%">  
+                                <Label row="1" col="1" text="Pause"  class="p-r-10 ikonice-text"/>
+                                <Label row="0" col="1" text="&#xf28b;" class="fa ikonice" height="190"/>  
+                    </GridLayout>
+                    <GridLayout columns="auto, *" col="0" class="sidedrawer-list-item" title="Play" komanda="play" tip="PUT" tap="komande" height="220" width="25%">  
+                                <Label row="1" col="1" text="Play"  class="p-r-10 ikonice-text"/>
+                                <Label row="0" col="1" text="&#xf144;" class="fa ikonice" height="190"/>  
+                    </GridLayout>                  
+                    
+                    <GridLayout columns="auto, *" col="0" class="sidedrawer-list-item" title="Next song" komanda="next" tip="POST" tap="komande" height="220" width="25%">  
+                                <Label row="1" col="1" text="Play Next"  class="p-r-10 ikonice-text"/>
+                                <Label row="0" col="1" text="&#xf054;" class="fa ikonice" height="190"/>  
+                    </GridLayout>            
+            </StackLayout> 
+        </StackLayout>
+        <StackLayout VerticalAlignment="middle" class="{{ 'login-required' + (loginRequested === 'yes' ? ' ': ' hidden') }}">
+             <Image stretch="fill" width="240" horizontalAlignment="center" src="res://spotclean"/>
+             <GridLayout height="120px" columns="auto, *" class="sidedrawer-list-item"
+                        route="detalji-artikal/detalji-artikal-page" title="Login to Spotify">                       
+                        <Label row="0" col="1" text="Media controll" class="h2 p-15 titles spot-title" />
+             </GridLayout>
+            <Button text="Login and confirm access" class="button-green" tap="LoginToSpotify"></Button>
+        </StackLayout>
+        <!-- end of content -->
+    </StackLayout> 
+    </ScrollView>        
+</Page>
